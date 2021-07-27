@@ -16,9 +16,7 @@ class MembersSummaryViewModel: ObservableObject {
     }
 
     convenience init() {
-        self.init(
-            memberManager: DefaultMemberManager.shared
-        )
+        self.init(memberManager: DefaultMemberManager.shared)
     }
 
     deinit {

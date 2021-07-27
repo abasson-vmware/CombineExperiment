@@ -27,7 +27,7 @@ class DefaultMemberManagerTest: QuickSpec {
                 subject.addMember(name: "new member name")
             }
 
-            it("emits the updated members") {
+            it("publishes the updated members") {
                 let expectedMembers = [
                     Member(id: 1, name: "new member name")
                 ]

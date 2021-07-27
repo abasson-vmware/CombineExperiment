@@ -68,6 +68,7 @@
 		51F90EBF26AF835100649EE4 /* MembersViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewTest.swift; sourceTree = "<group>"; };
 		51F90EC126B0429E00649EE4 /* AddMemberFormViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberFormViewTest.swift; sourceTree = "<group>"; };
 		51F90EC326B047CE00649EE4 /* MembersSummaryViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersSummaryViewTest.swift; sourceTree = "<group>"; };
+		51F90EC526B0932900649EE4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +102,7 @@
 		51F90E6F26AB42D700649EE4 = {
 			isa = PBXGroup;
 			children = (
+				51F90EC526B0932900649EE4 /* README.md */,
 				51F90E7A26AB42D700649EE4 /* CombineExperiment */,
 				51F90E8C26AB42DA00649EE4 /* CombineExperimentTests */,
 				51F90E9726AB42DA00649EE4 /* CombineExperimentUITests */,
