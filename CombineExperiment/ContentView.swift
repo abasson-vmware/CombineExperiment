@@ -1,21 +1,18 @@
-//
-//  ContentView.swift
-//  CombineExperiment
-//
-//  Created by Alex Basson on 7/23/21.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
-}
+        VStack(alignment: .leading) {
+            MembersSummaryView()
+                .padding(.bottom, 24)
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+            AddMemberFormView()
+                .padding(.bottom, 48)
+
+            MembersView()
+
+            Spacer()
+        }
+        .padding(8)
     }
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,19 @@
 		51F90E8326AB42D900649EE4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51F90E8226AB42D900649EE4 /* Preview Assets.xcassets */; };
 		51F90E8E26AB42DA00649EE4 /* CombineExperimentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90E8D26AB42DA00649EE4 /* CombineExperimentTests.swift */; };
 		51F90E9926AB42DA00649EE4 /* CombineExperimentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90E9826AB42DA00649EE4 /* CombineExperimentUITests.swift */; };
+		51F90EA726AF4F7200649EE4 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90EA626AF4F7200649EE4 /* Member.swift */; };
+		51F90EA926AF4FBD00649EE4 /* MemberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90EA826AF4FBD00649EE4 /* MemberManager.swift */; };
+		51F90EAD26AF552800649EE4 /* DefaultMemberManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90EAC26AF552800649EE4 /* DefaultMemberManagerTest.swift */; };
+		51F90EAF26AF555C00649EE4 /* SpyMemberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90EAE26AF555C00649EE4 /* SpyMemberManager.swift */; };
+		51F90EB226AF55A800649EE4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 51F90EB126AF55A800649EE4 /* Quick */; };
+		51F90EB526AF55CE00649EE4 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 51F90EB426AF55CE00649EE4 /* Nimble */; };
+		51F90EB826AF570E00649EE4 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 51F90EB726AF570E00649EE4 /* ViewInspector */; };
+		51F90EBA26AF609A00649EE4 /* MembersSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90EB926AF609A00649EE4 /* MembersSummaryView.swift */; };
+		51F90EBC26AF60DA00649EE4 /* AddMemberFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90EBB26AF60DA00649EE4 /* AddMemberFormView.swift */; };
+		51F90EBE26AF610C00649EE4 /* MembersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90EBD26AF610C00649EE4 /* MembersView.swift */; };
+		51F90EC026AF835100649EE4 /* MembersViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90EBF26AF835100649EE4 /* MembersViewTest.swift */; };
+		51F90EC226B0429E00649EE4 /* AddMemberFormViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90EC126B0429E00649EE4 /* AddMemberFormViewTest.swift */; };
+		51F90EC426B047CE00649EE4 /* MembersSummaryViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90EC326B047CE00649EE4 /* MembersSummaryViewTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +58,16 @@
 		51F90E9426AB42DA00649EE4 /* CombineExperimentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CombineExperimentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F90E9826AB42DA00649EE4 /* CombineExperimentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineExperimentUITests.swift; sourceTree = "<group>"; };
 		51F90E9A26AB42DA00649EE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51F90EA626AF4F7200649EE4 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		51F90EA826AF4FBD00649EE4 /* MemberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberManager.swift; sourceTree = "<group>"; };
+		51F90EAC26AF552800649EE4 /* DefaultMemberManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMemberManagerTest.swift; sourceTree = "<group>"; };
+		51F90EAE26AF555C00649EE4 /* SpyMemberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyMemberManager.swift; sourceTree = "<group>"; };
+		51F90EB926AF609A00649EE4 /* MembersSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersSummaryView.swift; sourceTree = "<group>"; };
+		51F90EBB26AF60DA00649EE4 /* AddMemberFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberFormView.swift; sourceTree = "<group>"; };
+		51F90EBD26AF610C00649EE4 /* MembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersView.swift; sourceTree = "<group>"; };
+		51F90EBF26AF835100649EE4 /* MembersViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewTest.swift; sourceTree = "<group>"; };
+		51F90EC126B0429E00649EE4 /* AddMemberFormViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberFormViewTest.swift; sourceTree = "<group>"; };
+		51F90EC326B047CE00649EE4 /* MembersSummaryViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersSummaryViewTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51F90EB226AF55A800649EE4 /* Quick in Frameworks */,
+				51F90EB526AF55CE00649EE4 /* Nimble in Frameworks */,
+				51F90EB826AF570E00649EE4 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +126,11 @@
 				51F90E7F26AB42D900649EE4 /* Assets.xcassets */,
 				51F90E8426AB42D900649EE4 /* Info.plist */,
 				51F90E8126AB42D900649EE4 /* Preview Content */,
+				51F90EA626AF4F7200649EE4 /* Member.swift */,
+				51F90EA826AF4FBD00649EE4 /* MemberManager.swift */,
+				51F90EB926AF609A00649EE4 /* MembersSummaryView.swift */,
+				51F90EBB26AF60DA00649EE4 /* AddMemberFormView.swift */,
+				51F90EBD26AF610C00649EE4 /* MembersView.swift */,
 			);
 			path = CombineExperiment;
 			sourceTree = "<group>";
@@ -117,6 +148,11 @@
 			children = (
 				51F90E8D26AB42DA00649EE4 /* CombineExperimentTests.swift */,
 				51F90E8F26AB42DA00649EE4 /* Info.plist */,
+				51F90EAC26AF552800649EE4 /* DefaultMemberManagerTest.swift */,
+				51F90EAE26AF555C00649EE4 /* SpyMemberManager.swift */,
+				51F90EBF26AF835100649EE4 /* MembersViewTest.swift */,
+				51F90EC126B0429E00649EE4 /* AddMemberFormViewTest.swift */,
+				51F90EC326B047CE00649EE4 /* MembersSummaryViewTest.swift */,
 			);
 			path = CombineExperimentTests;
 			sourceTree = "<group>";
@@ -164,6 +200,11 @@
 				51F90E8B26AB42DA00649EE4 /* PBXTargetDependency */,
 			);
 			name = CombineExperimentTests;
+			packageProductDependencies = (
+				51F90EB126AF55A800649EE4 /* Quick */,
+				51F90EB426AF55CE00649EE4 /* Nimble */,
+				51F90EB726AF570E00649EE4 /* ViewInspector */,
+			);
 			productName = CombineExperimentTests;
 			productReference = 51F90E8926AB42DA00649EE4 /* CombineExperimentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -217,6 +258,11 @@
 				Base,
 			);
 			mainGroup = 51F90E6F26AB42D700649EE4;
+			packageReferences = (
+				51F90EB026AF55A800649EE4 /* XCRemoteSwiftPackageReference "quick" */,
+				51F90EB326AF55CE00649EE4 /* XCRemoteSwiftPackageReference "nimble" */,
+				51F90EB626AF570E00649EE4 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+			);
 			productRefGroup = 51F90E7926AB42D700649EE4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,7 +306,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				51F90E7E26AB42D700649EE4 /* ContentView.swift in Sources */,
+				51F90EBA26AF609A00649EE4 /* MembersSummaryView.swift in Sources */,
+				51F90EBE26AF610C00649EE4 /* MembersView.swift in Sources */,
+				51F90EA926AF4FBD00649EE4 /* MemberManager.swift in Sources */,
+				51F90EBC26AF60DA00649EE4 /* AddMemberFormView.swift in Sources */,
 				51F90E7C26AB42D700649EE4 /* CombineExperimentApp.swift in Sources */,
+				51F90EA726AF4F7200649EE4 /* Member.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +319,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51F90EAD26AF552800649EE4 /* DefaultMemberManagerTest.swift in Sources */,
+				51F90EC426B047CE00649EE4 /* MembersSummaryViewTest.swift in Sources */,
 				51F90E8E26AB42DA00649EE4 /* CombineExperimentTests.swift in Sources */,
+				51F90EC026AF835100649EE4 /* MembersViewTest.swift in Sources */,
+				51F90EC226B0429E00649EE4 /* AddMemberFormViewTest.swift in Sources */,
+				51F90EAF26AF555C00649EE4 /* SpyMemberManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +630,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		51F90EB026AF55A800649EE4 /* XCRemoteSwiftPackageReference "quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quick/quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		51F90EB326AF55CE00649EE4 /* XCRemoteSwiftPackageReference "nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quick/nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.2.0;
+			};
+		};
+		51F90EB626AF570E00649EE4 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		51F90EB126AF55A800649EE4 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51F90EB026AF55A800649EE4 /* XCRemoteSwiftPackageReference "quick" */;
+			productName = Quick;
+		};
+		51F90EB426AF55CE00649EE4 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51F90EB326AF55CE00649EE4 /* XCRemoteSwiftPackageReference "nimble" */;
+			productName = Nimble;
+		};
+		51F90EB726AF570E00649EE4 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51F90EB626AF570E00649EE4 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 51F90E7026AB42D700649EE4 /* Project object */;
 }
