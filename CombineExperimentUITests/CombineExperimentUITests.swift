@@ -11,26 +11,30 @@ class CombineExperimentUITests: XCTestCase {
 
     func testManagingMembers() throws {
         app.assertThat("Number of members: 0").isDisplayed()
+        app.assertThat("invalid member name").isNotDisplayed()
 
         submitForm(with: "Alice")
 
+        app.assertThat("invalid member name").isNotDisplayed()
         app.assertThat("Alice").isDisplayed()
+        app.assertThat("Number of members: 1").isDisplayed()
+
+        submitForm(with: "invalid name")
+
+        app.assertThat("invalid member name").isDisplayed()
+        app.assertThat("invalid name").isNotDisplayed()
         app.assertThat("Number of members: 1").isDisplayed()
 
         submitForm(with: "Bob")
 
+        app.assertThat("invalid member name").isNotDisplayed()
         app.assertThat("Bob").isDisplayed()
         app.assertThat("Number of members: 2").isDisplayed()
-
-        submitForm(with: "Carl")
-
-        app.assertThat("Carl").isDisplayed()
-        app.assertThat("Number of members: 3").isDisplayed()
 
         removeButton(at: 0).tap()
 
         app.assertThat("Alice").isNotDisplayed()
-        app.assertThat("Number of members: 2").isDisplayed()
+        app.assertThat("Number of members: 1").isDisplayed()
     }
 
     func isDisplayed() {

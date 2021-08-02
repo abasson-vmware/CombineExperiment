@@ -23,7 +23,7 @@ class MembersViewTest: QuickSpec {
 
         describe("when a list of members is published") {
             beforeEach {
-                memberManager.membersSubject.send(members)
+                memberManager.membersSubject.send(.success(members))
             }
 
             it("displays the members") {
@@ -35,7 +35,7 @@ class MembersViewTest: QuickSpec {
 
         describe("when the user taps 'Remove' on a member row") {
             beforeEach {
-                memberManager.membersSubject.send(members)
+                memberManager.membersSubject.send(.success(members))
             }
 
             it("calls 'remove' on the memberManager with the appropriate member") {

@@ -2,11 +2,11 @@
 import Combine
 
 class SpyMemberManager: MemberManager {
-    let membersSubject = CurrentValueSubject<[Member], Never>([])
+    let membersSubject = CurrentValueSubject<Result<[Member], MemberFailure>, Never>(.success([]))
     private var addMemberArgs: AddMemberArgs?
     private var removeArgs: RemoveArgs?
 
-    var membersPublisher: AnyPublisher<[Member], Never> {
+    var membersPublisher: AnyPublisher<Result<[Member], MemberFailure>, Never> {
         membersSubject.eraseToAnyPublisher()
     }
 

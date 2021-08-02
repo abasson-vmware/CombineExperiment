@@ -1,10 +1,22 @@
 import SwiftUI
+import Combine
 
-class AddMemberFormViewModel {
+class AddMemberFormViewModel: ObservableObject {
     private let memberManager: MemberManager
+    private var subscription: AnyCancellable?
+
+    @Published var invalidMemberNameError = false
 
     init(memberManager: MemberManager) {
         self.memberManager = memberManager
+        self.subscription = memberManager.membersPublisher
+            .sink { [weak self] membersResult in
+                if case let .failure(error) = membersResult, case .invalidName = error {
+                    self?.invalidMemberNameError = true
+                } else {
+                    self?.invalidMemberNameError = false
+                }
+            }
     }
 
     convenience init() {
@@ -13,13 +25,17 @@ class AddMemberFormViewModel {
         )
     }
 
+    deinit {
+        subscription?.cancel()
+    }
+
     func addMember(name: String) {
         memberManager.addMember(name: name)
     }
 }
 
 struct AddMemberFormView: View {
-    private let viewModel: AddMemberFormViewModel
+    @ObservedObject private var viewModel: AddMemberFormViewModel
     @State private var newMemberName: String = ""
 
     init(viewModel: AddMemberFormViewModel) {
@@ -31,10 +47,18 @@ struct AddMemberFormView: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             TextField("New member name", text: $newMemberName)
                 .tag("newMemberName")
-                .padding(.bottom, 16)
+                .padding(.bottom, 8)
+
+            if viewModel.invalidMemberNameError {
+                Text("invalid member name")
+                    .font(.system(size: 12))
+                    .foregroundColor(.red)
+            }
+
+            Spacer()
 
             HStack {
                 Button(action: {
@@ -47,5 +71,6 @@ struct AddMemberFormView: View {
                 }
             }
         }
+        .frame(height: 100)
     }
 }

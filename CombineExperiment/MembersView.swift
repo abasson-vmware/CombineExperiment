@@ -10,8 +10,10 @@ class MembersViewModel: ObservableObject {
     init(memberManager: MemberManager) {
         self.memberManager = memberManager
         self.subscription = memberManager.membersPublisher
-            .sink { [self] members in
-                self.members = members
+            .sink { [weak self] membersResult in
+                if case let .success(members) = membersResult {
+                    self?.members = members
+                }
             }
     }
 

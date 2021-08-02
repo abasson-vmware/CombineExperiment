@@ -15,8 +15,12 @@ Each SwiftUI view is backed by its own view model class. The view model classes 
 `MemberManager` defines a protocol:
 
 ```swift
+enum MemberFailure: Error {
+    case invalidName
+}
+
 protocol MemberManager {
-    var membersPublisher: AnyPublisher<[Member], Never> { get }
+    var membersPublisher: AnyPublisher<Result<[Member], MemberFailure>, Never> { get }
     func addMember(name: String)
     func remove(member: Member)
 }
@@ -36,6 +40,8 @@ The `DefaultMemberManager` class implements the `MemberManager` protocol. Some t
 ```swift
 class DefaultMemberManager: MemberManager {
     private static var sharedInstance: DefaultMemberManager?
+    private var currentMembers: [Member] = []
+    private var id = 0
 
     static var shared: DefaultMemberManager {
         if let sharedInstance = sharedInstance {
@@ -48,23 +54,31 @@ class DefaultMemberManager: MemberManager {
 
     private init() {}
 
-    private let membersSubject = CurrentValueSubject<[Member], Never>([])
+    private let membersSubject = CurrentValueSubject<Result<[Member], MemberFailure>, Never>(.success([]))
 
-    var membersPublisher: AnyPublisher<[Member], Never> {
+    var membersPublisher: AnyPublisher<Result<[Member], MemberFailure>, Never> {
         membersSubject.eraseToAnyPublisher()
     }
 
     func addMember(name: String) {
-        let currentMembers = membersSubject.value
-        let newMember = Member(id: currentMembers.count + 1, name: name)
-        membersSubject.send(currentMembers + [newMember])
+        if (name.lowercased() == "invalid name") {
+            membersSubject.send(.failure(.invalidName))
+        } else {
+            id = id + 1
+            let newMember = Member(id: id, name: name)
+            currentMembers = currentMembers + [newMember]
+            membersSubject.send(.success(currentMembers))
+        }
     }
 
     func remove(member: Member) {
-        var currentMembers = membersSubject.value
         guard let memberIndex = currentMembers.firstIndex(of: member) else { return }
         currentMembers.remove(at: memberIndex)
-        membersSubject.send(currentMembers)
+        membersSubject.send(.success(currentMembers))
+    }
+    
+    func resetMembers() {
+        membersSubject.send(.success([]))
     }
 }
 ```
@@ -83,8 +97,10 @@ class MembersSummaryViewModel: ObservableObject {
     init(memberManager: MemberManager) {
         self.memberManager = memberManager
         self.subscription = memberManager.membersPublisher
-            .sink { [self] members in
-                self.memberCount = members.count
+            .sink { [weak self] membersResult in
+                if case let .success(members) = memberResult {
+                    self?.memberCount = members.count
+                }
             }
     }
 
@@ -126,7 +142,7 @@ We test each `View` together with its `ViewModel`. Because `MemberManager` is a 
 
 ```swift
 class SpyMemberManager: MemberManager {
-    let membersSubject = CurrentValueSubject<[Member], Never>([])
+    let membersSubject = CurrentValueSubject<Result<[Member], MemberFailure>, Never>(.success([]))
     private var addMemberArgs: AddMemberArgs?
     private var removeArgs: RemoveArgs?
 
@@ -176,10 +192,10 @@ class MembersSummaryViewTest: QuickSpec {
         }
 
         it("displays the number of members") {
-            memberManager.membersSubject.send([
+            memberManager.membersSubject.send(.success([
                 Member(id: 1, name: "one"),
                 Member(id: 2, name: "two")
-            ])
+            ]))
 
             let view = try subject.inspect()
 
@@ -204,26 +220,60 @@ class DefaultMemberManagerTest: QuickSpec {
             subject = DefaultMemberManager.shared
 
             subscription = subject.membersPublisher
-                .sink { members in
-                    actualMembers = members
-                }
+                .sink { membersResult in
+                    if case let .success(members) = membersResult {
+                        actualMembers = members
+                    }
+                }                
         }
 
         afterEach {
+            subject.resetMembers()
             subscription.cancel()
         }
 
-        describe("addMember()") {
-            beforeEach {
-                subject.addMember(name: "new member name")
-            }
-
+        describe("adding and removing members") {
             it("publishes the updated members") {
-                let expectedMembers = [
-                    Member(id: 1, name: "new member name")
-                ]
+                subject.addMember(name: "new member name")
 
-                expect(actualMembers).to(equal(expectedMembers))
+                expect(actualMembers).to(equal([
+                    Member(id: 1, name: "new member name")
+                ]))
+
+                subject.addMember(name: "second member name")
+
+                expect(actualMembers).to(equal([
+                    Member(id: 1, name: "new member name"),
+                    Member(id: 2, name: "second member name")
+                ]))
+
+                subject.remove(member: Member(id: 1, name: "new member name"))
+
+                expect(actualMembers).to(equal([
+                    Member(id: 2, name: "second member name")
+                ]))
+                
+                
+                subject.addMember(name: "a third member")
+                
+                expect(actualMembers).to(equal([
+                    Member(id: 2, name: "second member name"),
+                    Member(id: 3, name: "a third member")
+                ]))
+            }
+        }
+        
+        describe("handling an invalid member name") {
+            beforeEach {
+                subject.addMember(name: "invalid name")
+            }
+        
+            it("publishes an 'invalid name' error") {
+                expect(memberFailure).to(equal(.invalidName))
+            }
+        
+            it("does not publish a new member") {
+                expect(actualMembers).to(equal([]))
             }
         }
     }

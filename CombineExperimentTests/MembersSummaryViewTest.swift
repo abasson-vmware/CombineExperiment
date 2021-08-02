@@ -16,10 +16,10 @@ class MembersSummaryViewTest: QuickSpec {
         }
 
         it("displays the number of members") {
-            memberManager.membersSubject.send([
+            memberManager.membersSubject.send(.success([
                 Member(id: 1, name: "one"),
                 Member(id: 2, name: "two")
-            ])
+            ]))
 
             let view = try subject.inspect()
 
