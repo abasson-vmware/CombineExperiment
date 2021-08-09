@@ -34,9 +34,11 @@ class AddMemberFormViewModel: ObservableObject {
     }
 }
 
-struct AddMemberFormView: View {
+struct AddMemberFormView: View, DidAppearable {
     @ObservedObject private var viewModel: AddMemberFormViewModel
     @State private var newMemberName: String = ""
+
+    var didAppear: ((AddMemberFormView) -> Void)?
 
     init(viewModel: AddMemberFormViewModel) {
         self.viewModel = viewModel
@@ -72,5 +74,8 @@ struct AddMemberFormView: View {
             }
         }
         .frame(height: 100)
+        .onAppear {
+            self.didAppear?(self)
+        }
     }
 }

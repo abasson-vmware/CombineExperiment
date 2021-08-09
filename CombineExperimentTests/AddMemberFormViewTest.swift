@@ -17,14 +17,14 @@ class AddMemberFormViewTest: QuickSpec {
 
         describe("when the user submits the form") {
             it("passes") {
-                let view = try subject.inspect()
+                self.onViewDidAppear(subject) { view in
+                    let nameTextField = try? view.find(viewWithTag: "newMemberName").textField()
+                    try nameTextField?.setInput("some name")
 
-                let nameTextField = try? view.find(viewWithTag: "newMemberName").textField()
-                try nameTextField?.setInput("some name")
+                    try view.find(button: "Add new member").tap()
 
-                try view.find(button: "Add new member").tap()
-
-                expect(memberManager.addMemberWasCalled(with: "some name")).to(beTrue())
+                    expect(memberManager.addMemberWasCalled(with: "some name")).to(beTrue())
+                }
             }
         }
     }

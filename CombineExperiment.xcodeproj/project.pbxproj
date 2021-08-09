@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51E3EC5E26C1C2E900DB5FC8 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E3EC5D26C1C2E900DB5FC8 /* PlaceholderViewController.swift */; };
+		51E3EC6026C1C30900DB5FC8 /* PlaceholderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51E3EC5F26C1C30900DB5FC8 /* PlaceholderViewController.xib */; };
+		51E3EC6226C1C35200DB5FC8 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E3EC6126C1C35200DB5FC8 /* TestHelper.swift */; };
+		51E3EC6426C1C3CD00DB5FC8 /* DidAppearable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E3EC6326C1C3CD00DB5FC8 /* DidAppearable.swift */; };
 		51F90E7C26AB42D700649EE4 /* CombineExperimentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90E7B26AB42D700649EE4 /* CombineExperimentApp.swift */; };
 		51F90E7E26AB42D700649EE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90E7D26AB42D700649EE4 /* ContentView.swift */; };
 		51F90E8026AB42D900649EE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51F90E7F26AB42D900649EE4 /* Assets.xcassets */; };
@@ -46,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		51E3EC5D26C1C2E900DB5FC8 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
+		51E3EC5F26C1C30900DB5FC8 /* PlaceholderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceholderViewController.xib; sourceTree = "<group>"; };
+		51E3EC6126C1C35200DB5FC8 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
+		51E3EC6326C1C3CD00DB5FC8 /* DidAppearable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidAppearable.swift; sourceTree = "<group>"; };
 		51F90E7826AB42D700649EE4 /* CombineExperiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineExperiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F90E7B26AB42D700649EE4 /* CombineExperimentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineExperimentApp.swift; sourceTree = "<group>"; };
 		51F90E7D26AB42D700649EE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +141,9 @@
 				51F90EB926AF609A00649EE4 /* MembersSummaryView.swift */,
 				51F90EBB26AF60DA00649EE4 /* AddMemberFormView.swift */,
 				51F90EBD26AF610C00649EE4 /* MembersView.swift */,
+				51E3EC5D26C1C2E900DB5FC8 /* PlaceholderViewController.swift */,
+				51E3EC5F26C1C30900DB5FC8 /* PlaceholderViewController.xib */,
+				51E3EC6326C1C3CD00DB5FC8 /* DidAppearable.swift */,
 			);
 			path = CombineExperiment;
 			sourceTree = "<group>";
@@ -155,6 +166,7 @@
 				51F90EBF26AF835100649EE4 /* MembersViewTest.swift */,
 				51F90EC126B0429E00649EE4 /* AddMemberFormViewTest.swift */,
 				51F90EC326B047CE00649EE4 /* MembersSummaryViewTest.swift */,
+				51E3EC6126C1C35200DB5FC8 /* TestHelper.swift */,
 			);
 			path = CombineExperimentTests;
 			sourceTree = "<group>";
@@ -281,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51E3EC6026C1C30900DB5FC8 /* PlaceholderViewController.xib in Resources */,
 				51F90E8326AB42D900649EE4 /* Preview Assets.xcassets in Resources */,
 				51F90E8026AB42D900649EE4 /* Assets.xcassets in Resources */,
 			);
@@ -311,9 +324,11 @@
 				51F90EBA26AF609A00649EE4 /* MembersSummaryView.swift in Sources */,
 				51F90EBE26AF610C00649EE4 /* MembersView.swift in Sources */,
 				51F90EA926AF4FBD00649EE4 /* MemberManager.swift in Sources */,
+				51E3EC5E26C1C2E900DB5FC8 /* PlaceholderViewController.swift in Sources */,
 				51F90EBC26AF60DA00649EE4 /* AddMemberFormView.swift in Sources */,
 				51F90E7C26AB42D700649EE4 /* CombineExperimentApp.swift in Sources */,
 				51F90EA726AF4F7200649EE4 /* Member.swift in Sources */,
+				51E3EC6426C1C3CD00DB5FC8 /* DidAppearable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +338,7 @@
 			files = (
 				51F90EAD26AF552800649EE4 /* DefaultMemberManagerTest.swift in Sources */,
 				51F90EC426B047CE00649EE4 /* MembersSummaryViewTest.swift in Sources */,
+				51E3EC6226C1C35200DB5FC8 /* TestHelper.swift in Sources */,
 				51F90E8E26AB42DA00649EE4 /* CombineExperimentTests.swift in Sources */,
 				51F90EC026AF835100649EE4 /* MembersViewTest.swift in Sources */,
 				51F90EC226B0429E00649EE4 /* AddMemberFormViewTest.swift in Sources */,
